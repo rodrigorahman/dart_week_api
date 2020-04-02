@@ -1,0 +1,5 @@
+username: "postgres"
+password: "31032020"
+host: "localhost"
+port: 5432
+databaseName: "dart_week"
