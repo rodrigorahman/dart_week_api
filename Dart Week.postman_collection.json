@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "8d90baba-5df0-4d52-9751-b2e638263a92",
+		"name": "Dart Week",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "907be256-6c22-4166-aa1e-1aa240f4cb43",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"rodrigo\",\n\t\"senha\": \"123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categorias",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"rodrigorahman\",\n\t\"senha\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/categorias/despesa",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categorias",
+						"despesa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movimentacoes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/movimentacoes/:mesAno",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"movimentacoes",
+						":mesAno"
+					],
+					"variable": [
+						{
+							"key": "mesAno",
+							"value": "202004"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Movimentacoes Total",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"rodrigorahman\",\n\t\"senha\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/movimentacoes/total/202004",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"movimentacoes",
+						"total",
+						"202004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar Movimentação",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"categoria\": 5,\n\t\"dataMovimentacao\": \"2020-04-12T00:00:00Z\",\n\t\"descricao\": \"Curso Dart e Flutter Completo\",\n\t\"valor\": 1299.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/movimentacoes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"movimentacoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"login\": \"rodrigorahman\",\n\t\"senha\": \"123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuario",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
