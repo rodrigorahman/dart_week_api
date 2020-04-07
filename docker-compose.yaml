@@ -1,5 +1,15 @@
 version: '3'
 services:
+  dart_week_api:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - db
+    depends_on:
+      - db
   db:
     image: postgres
     ports:

@@ -1,6 +1,6 @@
 database:
  username: "postgres"
  password: "31032020"
- host: localhost
+ host: db
  port: 5432
  databaseName: dart_week
