@@ -17,6 +17,10 @@ INSERT INTO public.categoria (id, nome, tipocategoria) VALUES (11, 'Bar/Restaura
 INSERT INTO public.categoria (id, nome, tipocategoria) VALUES (12, 'Cuidados Pessoais', 'despesa');
 ```
 
+## Requests para os serviços
+
+Os exemplos de requests e responses estão dentro do arquivo ***Dart Week.postman_collection.json*** basta importa-lo no seu postman
+
 ## Running the Application Locally
 
 Run `aqueduct serve` from this directory to run the application. For running within an IDE, run `bin/main.dart`. By default, a configuration file named `config.yaml` will be used.
